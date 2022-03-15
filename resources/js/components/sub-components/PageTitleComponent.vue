@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="px-5">
         <h4>3rd Party Instruction</h4>
     </div>
 </template>

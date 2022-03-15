@@ -1,0 +1,26 @@
+{
+    "uom": [
+        {
+            "name": "SHP"
+        },
+        {
+            "name": "Other UOM"
+        }
+    ],
+    "currency": [
+        {
+            "name": "USD"
+        },
+        {
+            "name": "AED"
+        }
+    ],
+    "charge_to": [
+        {
+            "name": "MITME"
+        },
+        {
+            "name": "Customer"
+        }
+    ]
+}

@@ -21,7 +21,7 @@ export default {
     name: "CustomLabel",
     props: {
         label_text: {
-          type: String,  
+          default: "" 
         },
         label_style: {
             type: String,

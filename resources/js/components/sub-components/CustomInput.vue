@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input :type="input_type" class="form-control" :class="input_class" :value="input_value" :placeholder="input_placeholder" :style="input_style">
+        <input :type="input_type" class="form-control" :class="input_class" :placeholder="input_placeholder" :style="input_style" v-model="inputVal">
     </div>
 </template>
 
@@ -10,13 +10,12 @@ export default {
     props: {
         input_type: {
             type: String,
-            default: ""
+            default: "text"
         },
         input_class: {
             type: String
         },
-        input_value: {
-            type: String,
+        value: {
             default: ""
         },
         input_placeholder: {
@@ -26,6 +25,16 @@ export default {
         input_style: {
             type: String,
             default: ""
+        }
+    },
+    computed: {
+        inputVal: {
+            get() {
+                return this.value;
+            },
+            set(value) {
+                this.$emit('input', value)
+            }
         }
     }
 }
