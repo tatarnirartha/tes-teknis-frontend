@@ -4,40 +4,40 @@
             <thead>
                 <tr>
                     <th>
-                        <custom-label label_text="Description"/>
+                        <custom-label label_text="Description" label_class="mw-3"/>
                     </th>
                     <th>
-                        <custom-label label_text="Qty"/>
+                        <custom-label label_text="Qty" label_class="mw-2"/>
                     </th>
                     <th>
-                        <custom-label label_text="UOM"/>
+                        <custom-label label_text="UOM" label_class="mw-2"/>
                     </th>
                     <th>
-                        <custom-label label_text="Unit Price"/>
+                        <custom-label label_text="Unit Price" label_class="mw-2"/>
                     </th>
                     <th>
-                        <custom-label label_text="Discount (%)"/>
+                        <custom-label label_text="Discount (%)" label_class="mw-2"/>
                     </th>
                     <th>
-                        <custom-label label_text="VAT (%)"/>
+                        <custom-label label_text="VAT (%)" label_class="mw-2"/>
                     </th>
                     <th>
                         <custom-label />
                     </th>
                     <th>
-                        <custom-label label_text="Currency"/>
+                        <custom-label label_text="Currency" label_class="mw-1"/>
                     </th>
                     <th>
-                        <custom-label label_text="VAT Amount"/>
+                        <custom-label label_text="VAT Amount" label_class="mw-2"/>
                     </th>
                     <th>
-                        <custom-label label_text="Sub Total"/>
+                        <custom-label label_text="Sub Total" label_class="mw-2"/>
                     </th>
                     <th>
-                        <custom-label label_text="Total"/>
+                        <custom-label label_text="Total" label_class="mw-2"/>
                     </th>
                     <th>
-                        <custom-label label_text="Charge To"/>
+                        <custom-label label_text="Charge To" label_class="mw-3"/>
                     </th>
                     <th>
                         <custom-label/>
@@ -47,83 +47,91 @@
             <tbody>
                 <tr v-for="(cost, index) in instruction.costs" :key="index">
                     <td class="border-bottom">
-                        <custom-input input_placeholder="Description" v-model="cost.description"/>
+                        <custom-input input_placeholder="Description" v-model="cost.description" input_class="mw-3 big-input big-input"/>
                     </td>
                     <td class="border-bottom">
-                        <custom-input input_placeholder="Qty" input_type="number" v-model="cost.qty"/>
+                        <custom-input input_placeholder="Qty" input_type="number" v-model="cost.qty" input_class="mw-2 big-input"/>
                     </td>
                     <td class="border-bottom">
-                        <custom-select :data="all_uom" v-model="cost.oum"/>
+                        <custom-select :data="all_uom" v-model="cost.oum" select_class="mw-2 big-input"/>
                     </td>
                     <td class="border-bottom">
-                        <custom-input input_placeholder="Unit Price" input_type="number" v-model="cost.unit_price"/>
+                        <custom-input input_placeholder="Unit Price" input_type="number" v-model="cost.unit_price" input_class="mw-2 big-input"/>
                     </td>
                     <td class="border-bottom">
-                        <custom-input input_value="0" input_type="number" v-model="cost.discount"/>
+                        <custom-input input_value="0" input_type="number" v-model="cost.discount" input_class="mw-2 big-input"/>
                     </td>
                     <td class="border-bottom">
-                        <custom-input input_value="0" input_type="number" v-model="cost.vat"/>
+                        <custom-input input_value="0" input_type="number" v-model="cost.vat" input_class="mw-2 big-input"/>
                     </td>
                     <td class="border-bottom arrow center-vertical">
                         <font-awesome-icon icon="fa-solid fa-arrow-right" />
                     </td>
                     <td class="border-bottom">
-                        <custom-select :data="all_currency" v-model="cost.currency"/>
+                        <custom-select :data="all_currency" v-model="cost.currency" select_class="mw-1 big-input"/>
+                    </td>
+                    <td class="border-bottom center-vertical">
+                        <div class="d-flex flex-row-reverse mh-100">
+                            <custom-label :label_text="getVatAmount(index)"/>
+                        </div>
+                    </td>
+                    <td class="border-bottom center-vertical">
+                        <custom-label :label_text="getSubTotal(index)" label_class="mw-2"/>
+                    </td>
+                    <td class="border-bottom center-vertical">
+                        <custom-label :label_text="getTotal(index)" label_class="mw-2"/>
                     </td>
                     <td class="border-bottom">
-                        <custom-label :label_text="getVatAmount(index)" />
+                        <custom-select :data="all_charge_to" placeholder="Select an option" v-model="cost.charge_to" select_class="mw-3 big-input"/>
                     </td>
                     <td class="border-bottom">
-                        <custom-label :label_text="getSubTotal(index)" />
-                    </td>
-                    <td class="border-bottom">
-                        <custom-label :label_text="getTotal(index)" />
-                    </td>
-                    <td class="border-bottom">
-                        <custom-select :data="all_charge_to" placeholder="Select an option" v-model="cost.charge_to"/>
-                    </td>
-                    <td class="border-bottom">
-                        <custom-button icon="fa-minus" @btnClick="minClick(index)" btn_class="min-btn text-muted"/>
+                        <custom-button icon="fa-minus" @btnClick="minClick(index)" btn_class="min-btn text-muted big-btn"/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="7" rowspan="2" class="no-border center-vertical">
                         <div class="d-flex">
                             <custom-label label_text="Exchange Rate 1 USD = " label_class="pe-2"/>
-                            <custom-input input_value="3.244"/>
+                            <span class="currency">
+                                {{excange_rate.AED}}
+                            </span>
                             <custom-label label_text="AED" label_class="ps-2"/>
                         </div>
                     </td>
                      <td class="px-3 darker-table border-white">
-                         <custom-label label_text="AED in Total"/>
+                         <custom-label label_text="AED in Total" label_class="mw-2"/>
                     </td>
-                    <td class="px-3 darker-table border-white">
-                        <custom-label :label_text="getAedVatAmount"/>
+                    <td class="darker-table border-white center-vertical">
+                        <div class="d-flex flex-row-reverse mh-100">
+                            <custom-label :label_text="getAedVatAmount"/>
+                        </div>
                     </td>
-                    <td class="px-3 darker-table border-white">
+                    <td class="px-2 darker-table border-white center-vertical">
                         <custom-label :label_text="getAedSubTotal"/>
                     </td>
-                    <td class="px-3 darker-table border-white">
+                    <td class="px-2 darker-table border-white center-vertical">
                         <custom-label :label_text="getAedTotal"/>
                     </td>
                     <td class="no-border">
 
                     </td>
                     <td rowspan="2" class="no-border center-vertical">
-                        <custom-button icon="fa-plus" @btnClick="plusClick()" btn_class="plus-btn"/>
+                        <custom-button icon="fa-plus" @btnClick="plusClick()" btn_class="plus-btn big-btn"/>
                     </td>
                 </tr>
                 <tr>
                     <td class="px-3 darker-table no-border">
                         <custom-label label_text="USD in Total"/>
                     </td>
-                    <td class="px-3 darker-table no-border">
-                        <custom-label :label_text="getUsdVatAmount"/>
+                    <td class="darker-table no-border center-vertical">
+                        <div class="d-flex flex-row-reverse mh-100">
+                            <custom-label :label_text="getUsdVatAmount"/>
+                        </div>
                     </td>
-                    <td class="px-3 darker-table no-border">
+                    <td class="px-2 darker-table no-border center-vertical">
                         <custom-label :label_text="getUsdSubTotal"/>
                     </td>
-                    <td class="px-3 darker-table no-border">
+                    <td class="px-2 darker-table no-border center-vertical">
                         <custom-label :label_text="getUsdTotal"/>
                     </td>
                     <td class="no-border">
@@ -145,10 +153,50 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
     name: "TableComponent",
+    props: {
+        submit: {
+            type: String,
+            default: ""
+        },
+        draft: {
+            type: String,
+            default: ""
+        },
+        reset: {
+            type: String,
+            default: ""
+        }
+    },
     data() {
         return {
-
             instruction: {
+                costs: [
+                    {
+                        description: "",
+                        qty: "",
+                        uom: "",
+                        unit_price: "",
+                        discount: 0,
+                        vat: 0,
+                        currency: "",
+                        vat_amount: 0,
+                        sub_total: 0,
+                        total: "",
+                        charge_to: ""
+                    }
+                ],
+                AED_total: {
+                    vat_amount: 0,
+                    sub_total: 0,
+                    total: 0
+                },
+                USD_total: {
+                    vat_amount: 0,
+                    sub_total: 0,
+                    total: 0
+                }
+            },
+            instruction_empty: {
                 costs: [
                     {
                         description: "",
@@ -187,10 +235,10 @@ export default {
     },
     computed: {
         ...mapGetters({
-            all_uom: "instruction/getUom",
-            all_currency: "instruction/getCurrency",
-            all_charge_to: "instruction/getChargeTo",
-            excange_rate: "instruction/getExchange"
+            all_uom: "instructions/getUom",
+            all_currency: "instructions/getCurrency",
+            all_charge_to: "instructions/getChargeTo",
+            excange_rate: "instructions/getExchange"
         }),
         getSubTotal(){
             return index => {
@@ -250,7 +298,6 @@ export default {
             }
             this.instruction.AED_total.vat_amount = this.checkCurrencyAed(this.instruction.costs[0].vat_amount, this.instruction.costs[0].currency).toFixed(2);
             return this.checkCurrencyAed(this.instruction.costs[0].vat_amount, this.instruction.costs[0].currency).toFixed(2);
-            
         },
         getAedSubTotal() {
             if(this.instruction.costs.length > 1){
@@ -266,7 +313,6 @@ export default {
             }
             this.instruction.AED_total.sub_total = this.checkCurrencyAed(this.instruction.costs[0].sub_total, this.instruction.costs[0].currency).toFixed(2);
             return this.checkCurrencyAed(this.instruction.costs[0].sub_total, this.instruction.costs[0].currency).toFixed(2);
-            
         },
         getAedTotal() {
             if(this.instruction.costs.length > 1){
@@ -282,7 +328,6 @@ export default {
             }
             this.instruction.AED_total.total = this.checkCurrencyAed(this.instruction.costs[0].total, this.instruction.costs[0].currency).toFixed(2);
             return this.checkCurrencyAed(this.instruction.costs[0].total, this.instruction.costs[0].currency).toFixed(2);
-            
         },
         getUsdVatAmount() {
             if(this.instruction.costs.length > 1){
@@ -298,7 +343,6 @@ export default {
             }
             this.instruction.USD_total.vat_amount = this.checkCurrencyUsd(this.instruction.costs[0].vat_amount, this.instruction.costs[0].currency).toFixed(2);
             return this.checkCurrencyUsd(this.instruction.costs[0].vat_amount, this.instruction.costs[0].currency).toFixed(2);
-            
         },
         getUsdSubTotal() {
             if(this.instruction.costs.length > 1){
@@ -313,8 +357,7 @@ export default {
                 return a.toFixed(2);
             }
             this.instruction.USD_total.sub_total = this.checkCurrencyUsd(this.instruction.costs[0].sub_total, this.instruction.costs[0].currency).toFixed(2);
-            return this.checkCurrencyUsd(this.instruction.costs[0].sub_total, this.instruction.costs[0].currency).toFixed(2);
-            
+            return this.checkCurrencyUsd(this.instruction.costs[0].sub_total, this.instruction.costs[0].currency).toFixed(2);  
         },
         getUsdTotal() {
             if(this.instruction.costs.length > 1){
@@ -330,15 +373,17 @@ export default {
             }
             this.instruction.USD_total.total = this.checkCurrencyUsd(this.instruction.costs[0].total, this.instruction.costs[0].currency).toFixed(2);
             return this.checkCurrencyUsd(this.instruction.costs[0].total, this.instruction.costs[0].currency).toFixed(2);
-            
-        }
+        },
+        
     },
     methods: {
         ...mapActions({
-            getUomFromDb: "instruction/getUomFromDb",
-            getCurrencyFromDb: "instruction/getCurrencyFromDb",
-            getChargeToFromDb: "instruction/getChargeToFromDb",
-            getExchangeFromApi: "instruction/getExchangeRateFromApi"
+            getUomFromDb: "instructions/getUomFromDb",
+            getCurrencyFromDb: "instructions/getCurrencyFromDb",
+            getChargeToFromDb: "instructions/getChargeToFromDb",
+            getExchangeFromApi: "instructions/getExchangeRateFromApi",
+            postInstructionB: "instructions/postInstructionB",
+            postDraft: "instructions/postDraft"
         }),
         plusClick(){
             const newCost = {
@@ -383,6 +428,27 @@ export default {
         this.getCurrencyFromDb();
         this.getChargeToFromDb();
         this.getExchangeFromApi();
+    },
+    watch: {
+        submit: function () {
+            if(this.submit == "submit"){
+                this.postInstructionB(this.instruction);                
+                this.reset = "reset";
+            }
+        },
+        draft: function () {
+            if(this.draft == "draft"){
+                this.postDraft(this.instruction);
+                this.reset = "reset";
+                this.draft = "";
+
+            }
+        },
+        reset: function () {
+            if(this.reset == "reset"){
+                this.instruction = this.instruction_empty;
+            } 
+        }
     }
 }
 </script>
@@ -415,6 +481,19 @@ tbody {
 
 .arrow {
     color: rgb(185, 192, 199);
+}
+
+.currency{
+    padding: 0.375rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: rgb(251, 251, 251);
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0.25rem;
 }
 
 </style>

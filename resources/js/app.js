@@ -13,6 +13,8 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTruck } from '@fortawesome/free-solid-svg-icons';
+import { faWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -20,6 +22,8 @@ library.add(faChevronDown);
 library.add(faArrowRight);
 library.add(faMinus);
 library.add(faPlus);
+library.add(faTruck);
+library.add(faWrench);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

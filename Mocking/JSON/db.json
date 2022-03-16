@@ -1,30 +1,92 @@
 {
-    "uom": [
-        {
-            "name": "SHP"
-        },
-        {
-            "name": "Other UOM"
-        }
-    ],
-    "currency": [
-        {
-            "name": "USD"
-        },
-        {
-            "name": "AED"
-        }
-    ],
-    "charge_to": [
-        {
-            "name": "MITME"
-        },
-        {
-            "name": "Customer"
-        }
-    ],
-    "exchange_rate": {
-        "AED" : 3.6725,
-        "USD" : 1
+  "uom": [
+    {
+      "name": "SHP"
+    },
+    {
+      "name": "Other UOM"
     }
+  ],
+  "currency": [
+    {
+      "name": "USD"
+    },
+    {
+      "name": "AED"
+    }
+  ],
+  "charge_to": [
+    {
+      "name": "MITME"
+    },
+    {
+      "name": "Customer"
+    }
+  ],
+  "exchange_rate": {
+    "AED": 3.6725,
+    "USD": 1
+  },
+  "assigned_vendor": [
+    {
+        "name": "Amarit & Associates Co Ltd"
+    },
+    {
+        "name": "Amarit & Associates Logistics Co Ltd"
+    },
+    {
+        "name": "Alphatrans Pte Ltd"
+    },
+    {
+        "name": "Bangkok Freight Forwarders Co Ltd"
+    }
+  ],
+  "invoice_to": [
+      {
+        "name": "Marubeni-Ithochu Tubulars"
+      },
+      {
+        "name": "Marubeni-Ithochu Steel"
+      },
+      {
+        "nama": "MITME" 
+      },
+      {
+        "nama": "MITO" 
+      }
+  ],
+  "customer_contract": [
+      {
+          "name": "Hail & Gasha"
+      },
+      {
+          "name": "OFFSHORE"
+      },
+      {
+          "name": "ONSHORE"
+      },
+      {
+          "name": "Sour Gas"
+      },
+      {
+          "name": "ADNOC-ONSHORE"
+      }
+  ],
+  "customer_po_no": [
+      {
+          "name": "PO003"
+      },
+      {
+          "name": "PO01"
+      },
+      {
+          "name": "A123XXHT0192"
+      }
+  ],
+  "instruction": [
+    
+  ],
+  "draft": [
+    
+  ]
 }

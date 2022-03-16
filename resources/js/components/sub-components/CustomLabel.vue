@@ -4,11 +4,9 @@
             {{label_text}}
         </span>
         <div class="dropdown mx-2" v-if="is_dropdown">
-            <font-awesome-icon icon="chevron-down" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false"/>
+            <font-awesome-icon icon="chevron-down" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false" class="text-muted"/>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li v-for="(d, index) in data" :key="index"><a class="dropdown-item" href="#">{{d.name}}</a></li>
           </ul>
         </div>     
     </div>
@@ -33,7 +31,8 @@ export default {
         },
         label_class: {
             type: String
-        }
+        },
+        data: []
     },
     components: {
         FontAwesomeIcon
