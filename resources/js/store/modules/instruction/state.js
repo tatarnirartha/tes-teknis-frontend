@@ -1,7 +1,8 @@
 const main_state = {
     uom: [],
     currency: [],
-    charge_to: []
+    charge_to: [],
+    exchange_rate: []
 };
 
 export default {

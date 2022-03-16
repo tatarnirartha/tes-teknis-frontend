@@ -1,8 +1,8 @@
 <template>
     <div>
-        <select class="form-select">
+        <select class="form-select" v-model="selectVal">
             <option v-if="placeholder != ''" selected disabled hidden>{{placeholder}}</option>
-            <option v-for="(d, index) in data" :key="index" value="d.name">{{d.name}}</option>
+            <option v-for="(d, index) in data" :key="index" :value="d.name">{{d.name}}</option>
         </select>
     </div>
 </template>
@@ -11,8 +11,7 @@
 export default {
     name: "CustomSelect",
     props: {
-        placehoder: {
-            type: String,
+        value: {
             default: ""
         },
         data: {
@@ -24,6 +23,16 @@ export default {
         placeholder: {
             type: String,
             default: ""
+        }
+    },
+    computed: {
+        selectVal: {
+            get(){
+                return this.value;
+            },
+            set(value){
+                this.$emit('input', value);
+            }
         }
     }
 

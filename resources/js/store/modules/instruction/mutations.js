@@ -10,8 +10,13 @@
      state.main_state.charge_to = payload;
  };
 
+ const SETEXCHANGE = (state, payload) => {
+     state.main_state.exchange_rate = payload;
+ }
+
  export {
      SETUOM,
      SETCURRENCY,
-     SETCHARGETO
+     SETCHARGETO,
+     SETEXCHANGE
  };

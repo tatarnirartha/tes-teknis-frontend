@@ -10,8 +10,13 @@ const getChargeTo = (state) => {
     return state.main_state.charge_to;
 };
 
+const getExchange = (state) => {
+    return state.main_state.exchange_rate
+}
+
 export {
     getUom,
     getCurrency,
-    getChargeTo
+    getChargeTo,
+    getExchange
 };

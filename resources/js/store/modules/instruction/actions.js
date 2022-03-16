@@ -15,8 +15,14 @@ const getChargeToFromDb = async (context) => {
     context.commit("SETCHARGETO", response.data);
 };
 
+const getExchangeRateFromApi = async (context) => {
+    let response = await Axios.get("http://localhost:3000/exchange_rate");
+    context.commit("SETEXCHANGE", response.data);
+}
+
 export {
     getUomFromDb,
     getCurrencyFromDb,
-    getChargeToFromDb
+    getChargeToFromDb,
+    getExchangeRateFromApi
 };

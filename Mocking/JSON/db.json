@@ -22,5 +22,9 @@
         {
             "name": "Customer"
         }
-    ]
+    ],
+    "exchange_rate": {
+        "AED" : 3.6725,
+        "USD" : 1
+    }
 }
