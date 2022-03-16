@@ -19,5 +19,7 @@ npm run watch
 json-server --watch ./Mocking/JSON/db.json 
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 5. Open this url in your browser
+```
+http://127.0.0.1:8000/
+```
