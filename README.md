@@ -1,5 +1,5 @@
 ## Tes Teknis Front End Inosoft
-## 1. Install some npm packages
+### 1. Install some npm packages
 ```
 npm install
 ```
