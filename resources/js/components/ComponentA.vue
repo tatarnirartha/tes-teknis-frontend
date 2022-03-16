@@ -91,6 +91,9 @@ export default {
     components: { CustomSelect, CustomLabel, CustomInput },
     data() {
         return {
+            submit: "",
+            draft: "",
+            reset: "",
             data: [
                 {
                     name: "Logistic Instruction",
@@ -124,6 +127,27 @@ export default {
             customer_contract: "instructions/getCustomerContract",
             customer_po_no: "instructions/getCustomerPoNo"
         })
+    },
+    watch: {
+        submit: function () {
+            if(this.submit == "submit"){
+                this.postInstructionB(this.instruction);                
+                this.reset = "reset";
+            }
+        },
+        draft: function () {
+            if(this.draft == "draft"){
+                this.postDraft(this.instruction);
+                this.reset = "reset";
+                this.draft = "";
+
+            }
+        },
+        reset: function () {
+            if(this.reset == "reset"){
+                this.instruction = this.instruction_empty;
+            } 
+        }
     }
 }
 </script>
