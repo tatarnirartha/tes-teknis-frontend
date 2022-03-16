@@ -29,64 +29,188 @@
   },
   "assigned_vendor": [
     {
-        "name": "Amarit & Associates Co Ltd"
+      "name": "Amarit & Associates Co Ltd"
     },
     {
-        "name": "Amarit & Associates Logistics Co Ltd"
+      "name": "Amarit & Associates Logistics Co Ltd"
     },
     {
-        "name": "Alphatrans Pte Ltd"
+      "name": "Alphatrans Pte Ltd"
     },
     {
-        "name": "Bangkok Freight Forwarders Co Ltd"
+      "name": "Bangkok Freight Forwarders Co Ltd"
     }
   ],
   "invoice_to": [
-      {
-        "name": "Marubeni-Ithochu Tubulars"
-      },
-      {
-        "name": "Marubeni-Ithochu Steel"
-      },
-      {
-        "nama": "MITME" 
-      },
-      {
-        "nama": "MITO" 
-      }
+    {
+      "name": "Marubeni-Ithochu Tubulars"
+    },
+    {
+      "name": "Marubeni-Ithochu Steel"
+    },
+    {
+      "name": "MITME"
+    },
+    {
+      "name": "MITO"
+    }
   ],
   "customer_contract": [
-      {
-          "name": "Hail & Gasha"
-      },
-      {
-          "name": "OFFSHORE"
-      },
-      {
-          "name": "ONSHORE"
-      },
-      {
-          "name": "Sour Gas"
-      },
-      {
-          "name": "ADNOC-ONSHORE"
-      }
+    {
+      "name": "Hail & Gasha"
+    },
+    {
+      "name": "OFFSHORE"
+    },
+    {
+      "name": "ONSHORE"
+    },
+    {
+      "name": "Sour Gas"
+    },
+    {
+      "name": "ADNOC-ONSHORE"
+    }
   ],
   "customer_po_no": [
-      {
-          "name": "PO003"
-      },
-      {
-          "name": "PO01"
-      },
-      {
-          "name": "A123XXHT0192"
-      }
+    {
+      "name": "PO003"
+    },
+    {
+      "name": "PO01"
+    },
+    {
+      "name": "A123XXHT0192"
+    }
   ],
   "instruction": [
-    
+    {
+      "costs": [
+        {
+          "description": "Instruction",
+          "qty": "12",
+          "uom": "",
+          "unit_price": "125",
+          "discount": "10",
+          "vat": "3",
+          "currency": "AED",
+          "vat_amount": 40.5,
+          "sub_total": 1350,
+          "total": 1390,
+          "charge_to": "MITME",
+          "oum": "SHP"
+        },
+        {
+          "description": "Instuction",
+          "qty": "5",
+          "uom": "",
+          "unit_price": "350",
+          "discount": "30",
+          "vat": 0,
+          "currency": "USD",
+          "vat_amount": 0,
+          "sub_total": 1225,
+          "total": 1225,
+          "charge_to": "Customer",
+          "oum": "SHP"
+        }
+      ],
+      "AED_total": {
+        "vat_amount": "40.50",
+        "sub_total": "5848.81",
+        "total": "5888.81"
+      },
+      "USD_total": {
+        "vat_amount": "11.03",
+        "sub_total": "1592.60",
+        "total": "1603.49"
+      },
+      "id": 1
+    },
+    {
+      "costs": [
+        {
+          "description": "",
+          "qty": "",
+          "uom": "",
+          "unit_price": "",
+          "discount": "121",
+          "vat": 0,
+          "currency": "",
+          "vat_amount": 0,
+          "sub_total": 0,
+          "total": 0,
+          "charge_to": ""
+        }
+      ],
+      "AED_total": {
+        "vat_amount": "0.00",
+        "sub_total": "0.00",
+        "total": "0.00"
+      },
+      "USD_total": {
+        "vat_amount": "0.00",
+        "sub_total": "0.00",
+        "total": "0.00"
+      },
+      "id": 2
+    },
+    {
+      "costs": [
+        {
+          "description": "",
+          "qty": "",
+          "uom": "",
+          "unit_price": "",
+          "discount": "123",
+          "vat": 0,
+          "currency": "",
+          "vat_amount": 0,
+          "sub_total": 0,
+          "total": 0,
+          "charge_to": ""
+        }
+      ],
+      "AED_total": {
+        "vat_amount": "0.00",
+        "sub_total": "0.00",
+        "total": "0.00"
+      },
+      "USD_total": {
+        "vat_amount": "0.00",
+        "sub_total": "0.00",
+        "total": "0.00"
+      },
+      "id": 3
+    },
+    {
+      "costs": [
+        {
+          "description": "",
+          "qty": "",
+          "uom": "",
+          "unit_price": "",
+          "discount": 0,
+          "vat": "123",
+          "currency": "",
+          "vat_amount": 0,
+          "sub_total": 0,
+          "total": 0,
+          "charge_to": ""
+        }
+      ],
+      "AED_total": {
+        "vat_amount": "0.00",
+        "sub_total": "0.00",
+        "total": "0.00"
+      },
+      "USD_total": {
+        "vat_amount": "0.00",
+        "sub_total": "0.00",
+        "total": "0.00"
+      },
+      "id": 4
+    }
   ],
-  "draft": [
-    
-  ]
+  "draft": []
 }

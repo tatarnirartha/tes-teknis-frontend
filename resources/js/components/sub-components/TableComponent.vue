@@ -433,15 +433,11 @@ export default {
         submit: function () {
             if(this.submit == "submit"){
                 this.postInstructionB(this.instruction);                
-                this.reset = "reset";
             }
         },
         draft: function () {
             if(this.draft == "draft"){
                 this.postDraft(this.instruction);
-                this.reset = "reset";
-                this.draft = "";
-
             }
         },
         reset: function () {
